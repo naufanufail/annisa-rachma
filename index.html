@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f7f1eb" />
+<meta name="description" content="A little something Naufa wanted Annisa to know." />
+<title>A Little Something — For Annisa</title>
+<style>
+:root{
+  --paper:#f7f1eb;--paper2:#fffaf5;--ink:#2b2928;--muted:#756c66;
+  --rose:#b86f72;--rose2:#e6b9b5;--wine:#693f4b;--sage:#87927b;
+  --line:rgba(75,53,49,.16);--shadow:0 24px 70px rgba(68,43,42,.10);
+  --serif:Georgia,"Times New Roman",serif;--sans:Inter,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.8;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:5;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E")}
+a{color:inherit}
+::selection{background:#e7c2c0;color:#342329}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--rose);z-index:20}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:15;display:flex;justify-content:space-between;align-items:center;padding:17px clamp(18px,5vw,70px);background:rgba(247,241,235,.82);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:.3s}
+.topbar.scrolled{border-color:var(--line)}
+.brand{font-family:var(--serif);font-size:17px;letter-spacing:.04em}
+.top-actions{display:flex;gap:10px;align-items:center}
+.pill{border:1px solid var(--line);background:rgba(255,250,245,.7);padding:8px 13px;border-radius:99px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--ink);text-decoration:none}
+.pill:hover{background:white}
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:130px 22px 75px;position:relative;isolation:isolate;background:radial-gradient(ellipse at 50% 42%,#fffaf5 0%,#f7f1eb 55%,#efe4dc 100%);overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid rgba(184,111,114,.22);border-radius:50%;z-index:-1}
+.hero:before{width:min(78vw,780px);aspect-ratio:1;animation:orbit 60s linear infinite}
+.hero:after{width:min(60vw,590px);aspect-ratio:1;border-style:dashed;animation:orbit 80s linear infinite reverse}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.hero-inner{max-width:850px;position:relative}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.28em;color:var(--rose);font-weight:600}
+h1,h2,h3,.quote,.serif{font-family:var(--serif);font-weight:400}
+h1{font-size:clamp(43px,8vw,91px);line-height:1.02;letter-spacing:-.055em;margin:27px 0}
+h1 em{color:var(--wine);font-weight:400}
+.hero-sub{max-width:520px;margin:0 auto;color:var(--muted);font-size:15px}
+.hero-names{margin:36px 0 0;font-family:var(--serif);font-style:italic;color:var(--wine);font-size:20px}
+.scroll-note{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.scroll-note span{display:block;font-size:18px;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(5px)}}
+.flower-art{width:min(210px,45vw);margin:28px auto 0;display:block;filter:drop-shadow(0 12px 18px rgba(105,63,75,.09))}
+main{max-width:1100px;margin:auto;padding:0 clamp(18px,4vw,48px)}
+.intro-note{margin:70px auto 25px;max-width:660px;text-align:center;color:var(--muted);font-family:var(--serif);font-style:italic;font-size:19px}
+.section{padding:95px 0;border-bottom:1px solid var(--line);position:relative}
+.section-head{display:grid;grid-template-columns:70px 1fr;gap:20px;align-items:start;margin-bottom:35px}
+.num{font-family:var(--serif);font-size:28px;color:var(--rose);font-style:italic}
+.kicker{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin:0 0 7px}
+h2{font-size:clamp(32px,5vw,55px);line-height:1.1;letter-spacing:-.035em;margin:0}
+.section-deck{color:var(--muted);font-size:14px;max-width:560px;margin:16px 0 0}
+.content{max-width:760px;margin-left:90px}
+.content p{margin:0 0 20px;font-size:15px}
+.content p:last-child{margin-bottom:0}
+.content .joke{font-family:var(--serif);font-size:clamp(20px,3vw,27px);line-height:1.35;color:var(--wine);margin:30px 0}
+.content .bigline{font-family:var(--serif);font-size:clamp(25px,4vw,37px);line-height:1.25;color:var(--wine);margin:28px 0}
+.content .aside{border-left:2px solid var(--rose2);padding:4px 0 4px 20px;color:var(--muted);font-style:italic}
+.content strong{font-weight:650}
+.content em{color:var(--wine)}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:35px 0 30px}
+.mini-card{border:1px solid var(--line);padding:23px 20px;background:rgba(255,250,245,.58);border-radius:3px}
+.mini-card .symbol{font-size:23px;color:var(--rose)}
+.mini-card h3{font-size:23px;margin:8px 0}
+.mini-card p{font-size:13px;color:var(--muted);margin:0}
+.quote-card{margin:42px 0;padding:36px clamp(22px,5vw,54px);background:#efe2dc;border-radius:3px;text-align:center}
+.quote-card .quote{font-size:clamp(25px,4vw,40px);line-height:1.3;color:var(--wine);margin:0}
+.quote-card .translation{font-size:12px;color:var(--muted);letter-spacing:.04em;margin-top:15px}
+.timeline{margin:40px 0 30px;padding-left:25px;border-left:1px solid var(--rose2)}
+.timeline-item{position:relative;padding:0 0 28px 20px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:9px;width:9px;height:9px;background:var(--rose);border-radius:50%;box-shadow:0 0 0 5px var(--paper)}
+.timeline-item h3{font-size:22px;margin:0 0 5px}
+.timeline-item p{color:var(--muted);font-size:14px;margin:0}
+.flower-panel{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;margin:50px 0 10px;padding:clamp(20px,4vw,42px);background:#fffaf5;border:1px solid var(--line)}
+.flower-panel svg{width:100%;max-height:320px}
+.flower-panel h3{font-size:31px;margin:0 0 12px}
+.flower-panel p{font-size:14px;color:var(--muted)}
+.flower-label{display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);border-bottom:1px solid var(--rose2);padding-bottom:5px;margin-bottom:15px}
+.closing{padding:110px 0 80px;text-align:center}
+.closing h2{font-size:clamp(42px,7vw,78px);max-width:850px;margin:22px auto}
+.closing .closing-copy{max-width:640px;margin:25px auto;color:var(--muted);font-size:15px}
+.signature{font-family:var(--serif);font-style:italic;color:var(--wine);font-size:24px;margin-top:40px}
+.footer{border-top:1px solid var(--line);padding:25px 18px;text-align:center;color:var(--muted);font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.heart{display:inline-block;color:var(--rose);animation:heartbeat 2s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}8%{transform:scale(1.13)}16%{transform:scale(1)}}
+.sparkle{position:absolute;width:5px;height:5px;background:#c98d8a;border-radius:50%;opacity:.55;animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{50%{opacity:.1;transform:scale(.5)}}
+@media(max-width:720px){
+ .topbar{padding:13px 16px}.brand{font-size:15px}.pill{font-size:9px;padding:7px 9px}
+ .hero:before{width:95vw}.hero:after{width:78vw}
+ .section{padding:67px 0}.section-head{grid-template-columns:36px 1fr;gap:12px}.num{font-size:22px}
+ .content{margin-left:0}.content p{font-size:14px}.card-grid{grid-template-columns:1fr}
+ .flower-panel{grid-template-columns:1fr}.flower-panel svg{max-height:240px;order:0}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="topbar" id="topbar">
+  <div class="brand">a little something <span class="heart">♥</span></div>
+  <div class="top-actions">
+    <a class="pill" href="#letter">Read the letter ↓</a>
+    <button class="pill" id="musicToggle" type="button" aria-pressed="false">♫ ambience off</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <span class="sparkle" style="top:22%;left:20%;animation-delay:.3s"></span>
+  <span class="sparkle" style="top:30%;right:19%;animation-delay:1.2s"></span>
+  <span class="sparkle" style="bottom:22%;left:28%;animation-delay:2s"></span>
+  <div class="hero-inner">
+    <div class="eyebrow">a note from Naufa · 2026</div>
+    <h1>A little something<br><em>I wanted you to know.</em></h1>
+    <p class="hero-sub">Some feelings don't arrive with a perfect explanation. Sometimes, the simplest thing is to let them be known.</p>
+    <p class="hero-names">For Annisa Rachma Rihandini</p>
+    <svg class="flower-art" viewBox="0 0 240 230" role="img" aria-label="A delicate hand-drawn flower illustration">
+      <g fill="none" stroke="#87927b" stroke-width="2" stroke-linecap="round">
+        <path d="M121 217 Q119 168 124 115 Q127 83 116 55"/>
+        <path d="M122 168 Q84 132 61 151 Q78 179 122 168"/>
+        <path d="M124 143 Q160 105 184 119 Q169 151 124 143"/>
+        <path d="M122 189 Q151 170 168 186 Q148 206 122 189"/>
+      </g>
+      <g transform="translate(116 51)" fill="#e6b9b5" stroke="#b86f72" stroke-width="1.3">
+        <ellipse rx="12" ry="29" cy="-20"/><ellipse rx="12" ry="29" cy="-20" transform="rotate(45)"/>
+        <ellipse rx="12" ry="29" cy="-20" transform="rotate(90)"/><ellipse rx="12" ry="29" cy="-20" transform="rotate(135)"/>
+        <ellipse rx="12" ry="29" cy="-20" transform="rotate(180)"/><ellipse rx="12" ry="29" cy="-20" transform="rotate(225)"/>
+        <ellipse rx="12" ry="29" cy="-20" transform="rotate(270)"/><ellipse rx="12" ry="29" cy="-20" transform="rotate(315)"/>
+        <circle r="12" fill="#d4ad6b" stroke="#b58a4d"/>
+      </g>
+      <g fill="#b86f72"><circle cx="52" cy="81" r="2"/><circle cx="195" cy="68" r="2"/><circle cx="187" cy="205" r="2"/></g>
+    </svg>
+  </div>
+  <div class="scroll-note">take your time <span>⌄</span></div>
+</section>
+
+<main id="letter">
+  <p class="intro-note reveal">“Not a question you have to answer. Just an honest thought I wanted to share.”</p>
+
+  <section class="section reveal" id="opening">
+    <div class="section-head"><div class="num">01</div><div><p class="kicker">The opening “why”</p><h2>So, here we are.</h2><p class="section-deck">A website, some words, and one honest thought.</p></div></div>
+    <div class="content">
+      <p>Hi, Nis.</p>
+      <p>First of all, congratulations for opening this website. You've officially unlocked a page that probably wasn't on your to-do list today.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>I don't know what your first reaction will be. Maybe you're curious, maybe you're confused, or maybe you're already wondering what kind of thing I've made this time.</p>
+      <p>Whatever it is, welcome.</p>
+      <p>I made this little website because there's something I've wanted to tell you, and I thought it deserved more than a random text sent in the middle of an ordinary day.</p>
+      <p>Not because what I want to say is extraordinarily complicated. Actually, the main point is pretty simple.</p>
+      <p class="bigline">It's just that sometimes, simple things deserve to be expressed properly.</p>
+      <p>And honestly, I did consider doing this face-to-face.</p>
+      <p>But knowing myself, I'd probably make a joke halfway through, act like everything was normal, and then forget the actual point I wanted to say.</p>
+      <p>Classic Fail behavior, I guess.</p><p class="joke">HAHAHAHAHA.</p>
+      <p>And somehow, I thought a website would be a nice way to do this.</p>
+      <p>You can read it whenever you want, at your own pace, without me standing in front of you waiting for a reaction. No awkward eye contact required, no need to come up with an immediate response, and definitely no surprise oral examination at the end.</p>
+      <p>Tenang, Nis. Nggak ada pretest atau post-test. Nilai akhirnya juga nggak masuk SIA.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>But jokes aside, I chose this way because I wanted you to have the space to read everything without feeling like you had to react to every sentence as I said it.</p>
+      <p>You can laugh at the ridiculous parts, skip back to something you want to read again, or simply close this page and continue your day.</p>
+      <p>No dramatic background music. No cinematic rain. No me standing in the middle of the faculty holding a microphone.</p>
+      <p>Just a website, some words, and one honest thought I've decided to share with you.</p>
+      <p>Aku juga nggak ingin pengakuan ini terasa seperti sesuatu yang tiba-tiba mengubah suasana di antara kita menjadi canggung. Aku nggak ingin kamu merasa bahwa setelah membaca ini, kamu harus langsung bersikap berbeda kepadaku.</p>
+      <p class="bigline">Because, at the end of the day, I'm still me.</p>
+      <p>The same Fail you've talked to. The same person who can be serious for a moment and then ruin the atmosphere with a completely unnecessary joke.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>Aku cuma ingin ada satu hal yang kamu tahu, sesuatu yang selama ini mungkin belum pernah aku sampaikan secara langsung.</p>
+      <p>And I figured that if I was going to tell you, I might as well do it properly.</p>
+      <p>So, take your time, Nis.</p>
+      <p>There's no hidden assignment here, no correct answer, and no score waiting at the end.</p>
+      <p class="bigline">Just read. That's all.</p>
+    </div>
+  </section>
+
+  <section class="section reveal" id="air">
+    <div class="section-head"><div class="num">02</div><div><p class="kicker">Clear the air</p><h2>Honesty, without a demand.</h2><p class="section-deck">This isn't a question you need to solve. It's something I wanted to tell you.</p></div></div>
+    <div class="content">
+      <p>Before we go any further, I want to make one thing clear.</p>
+      <p class="bigline">I didn't make this website because I expect something from you.</p>
+      <p>I made it because I wanted to be honest.</p>
+      <p>There's a difference between those two things, and I think it's important that you know which one this is.</p>
+      <p>Sometimes, when someone confesses their feelings, it can unintentionally feel like they're handing the other person a responsibility.</p>
+      <p>Suddenly, the person receiving the confession has to think about what to say, how to respond, whether their response will hurt the other person's feelings, and what might happen to the relationship afterward.</p>
+      <p>I don't want this to become that kind of situation.</p>
+      <p>Aku nggak ingin kamu merasa harus menyusun kata-kata yang tepat hanya karena ada seseorang yang sedang menunggu kepastian darimu.</p>
+      <p class="bigline">Bukan itu maksudku.</p>
+      <p>Aku nggak sedang menunggu sebuah keputusan darimu. Aku juga nggak sedang menyerahkan sesuatu yang harus kamu balas dengan perasaan yang sama.</p>
+      <p>I'm simply telling you how I feel.</p>
+      <p>What you feel in return is yours to discover, understand, and express in your own time, if you ever feel like expressing it.</p>
+      <p>And if your feelings happen to be different from mine, that doesn't make your feelings wrong.</p>
+      <p>You don't have to manufacture an emotion just because someone else has been brave enough to admit theirs.</p>
+      <p class="bigline">Perasaan bukan transaksi.</p>
+      <p>Bukan sesuatu yang otomatis menjadi kewajiban orang lain hanya karena kita sudah memberikannya dengan tulus.</p>
+      <div class="quote-card"><p class="quote">“My feelings are mine to own,<br>not yours to repay.”</p><p class="translation">You can be honest without asking someone else to carry your honesty.</p></div>
+      <p>You don't owe me affection just because I gave you attention.</p>
+      <p>Aku bisa menyukai kamu tanpa menjadikan perasaan itu sebagai alasan untuk menuntut sesuatu darimu.</p>
+      <p>I can be sincere without expecting a particular outcome.</p>
+      <p>And I can be honest without asking you to carry the weight of my honesty.</p>
+      <p>That's what I want this confession to be.</p>
+      <p>Bukan sebuah pertanyaan yang harus segera kamu jawab, melainkan sebuah kejujuran yang akhirnya aku berani sampaikan.</p>
+      <p>Of course, I can't pretend that I have absolutely no hopes or expectations about life. I'm human, after all.</p>
+      <p>I have thoughts, feelings, and possibilities that sometimes cross my mind.</p>
+      <p>But having a hope is different from turning that hope into someone else's responsibility.</p>
+      <p>Aku bisa berharap tanpa menuntut. Aku bisa menyukai tanpa merasa berhak memiliki. Dan aku bisa menyampaikan perasaanku tanpa menganggap bahwa keberanian untuk jujur harus dibayar dengan jawaban tertentu.</p>
+      <p class="bigline">Because I believe that genuine affection should leave room for freedom.</p>
+      <p>Kalau kita bisa merasa nyaman saat berbicara, aku ingin kenyamanan itu tetap ada.</p>
+      <p>Kalau selama ini kita bisa bercanda, aku tetap ingin bisa bercanda.</p>
+      <p>Kalau suatu hari kita membicarakan sesuatu yang serius, aku ingin itu terjadi karena kita memang ingin saling mendengarkan, bukan karena salah satu dari kita merasa harus memenuhi ekspektasi tertentu.</p>
+      <p>I don't want this website to become a wall between us.</p>
+      <p>If anything, I hope it simply gives you a little more context about me.</p>
+      <p>Tentang apa yang aku rasakan, kenapa aku memilih menyampaikannya, dan kenapa menurutku kejujuran ini layak untuk diungkapkan.</p>
+      <p>You don't have to figure everything out today.</p>
+      <p>You don't have to make this into a bigger thing than it needs to be.</p>
+      <p>And you certainly don't have to change who you are just because you now know how I feel.</p>
+      <p>Aku tetap menghargai kamu sebagai dirimu sendiri, bukan sebagai seseorang yang harus memenuhi gambaran tertentu hanya karena aku menyukaimu.</p>
+      <p class="bigline">Because care should feel safe, not suffocating.</p>
+      <p>And I want you to feel free to be yourself, even after reading this.</p>
+    </div>
+  </section>
+
+  <section class="section reveal" id="spark">
+    <div class="section-head"><div class="num">03</div><div><p class="kicker">The writer & the spark</p><h2>Ordinary things can matter.</h2><p class="section-deck">A little about me, and the conversation about sparks I still remember.</p></div></div>
+    <div class="content">
+      <p>Now, before I tell you more about you, maybe I should explain a little about me.</p>
+      <p>Not my entire biography, obviously.</p>
+      <p class="joke">Kalau aku tulis semuanya, nanti website ini berubah menjadi CV, terus kamu malah sibuk membaca daftar prestasi dan pengalaman organisasi.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>I like having things to work toward.</p>
+      <p>I like learning, building ideas, exploring possibilities, and figuring out how something that initially seems impossible might eventually become real.</p>
+      <p>Sometimes, I get so caught up in what I'm trying to accomplish that I forget to slow down and appreciate the little things happening around me.</p>
+      <p>There's always another assignment, another idea, another responsibility, another thing that could be improved.</p>
+      <p>And honestly, I don't think that part of me will disappear anytime soon.</p>
+      <p>I have dreams that I take seriously. Things I want to build, people I want to help, and a future that I hope will mean something beyond myself.</p>
+      <p>But I've also come to realize that life isn't made meaningful only by the things we achieve.</p>
+      <p class="bigline">It's also shaped by the people we meet along the way.</p>
+      <p>The conversations we remember.</p>
+      <p>The moments that don't look particularly important while they're happening, but somehow remain in our minds long after they're over.</p>
+      <p>And sometimes, a person becomes part of that story without even trying.</p>
+      <p>That's where the word <em>spark</em> comes in.</p>
+      <p>I remember our conversation about it.</p>
+      <p>You mentioned that sometimes, simple things can become a spark. Feeling accepted by your friends, being able to joke around with them, and finding comfort in the people around you.</p>
+      <p>I liked that answer.</p>
+      <p>Not because it was some extraordinary philosophical revelation, but because it was simple in a way that made sense.</p>
+      <p>We often talk about sparks as if they have to be dramatic.</p>
+      <p>Something unforgettable. Something cinematic. Something that makes the world stop for a second while the background music suddenly changes.</p>
+      <p>But maybe a spark doesn't always have to be that spectacular.</p>
+      <p class="bigline">Sometimes, it's just the feeling that you can be yourself around someone.</p>
+      <p>You don't have to calculate every word.</p>
+      <p>You don't have to pretend to be more interesting than you are.</p>
+      <p>You can laugh at something stupid, talk about something ordinary, or sit in a comfortable silence without feeling that you need to fill every second with conversation.</p>
+      <p>Maybe that's why I remember what you said.</p>
+      <p>Because, in a way, I think the little things matter more than we sometimes realize.</p>
+      <p>Aku juga ingat kamu pernah cerita bahwa kamu cenderung tertutup sejak kecil. Kamu menyukai hubungan yang nyaman, nggak terlalu menuntut banyak hal, dan kehidupan yang damai tanpa drama yang nggak perlu.</p>
+      <p>At the same time, you still want to grow socially, even when changes can sometimes feel difficult.</p>
+      <p>I thought that was an interesting combination.</p>
+      <div class="card-grid">
+        <div class="mini-card"><div class="symbol">✳</div><h3>Grow</h3><p>Wanting to grow without necessarily wanting to become someone else.</p></div>
+        <div class="mini-card"><div class="symbol">♡</div><h3>Connect</h3><p>Wanting to know people while still valuing genuine, comfortable connections.</p></div>
+        <div class="mini-card"><div class="symbol">☼</div><h3>Go at your pace</h3><p>Experiencing the world without having to rush into every part of it.</p></div>
+      </div>
+      <p>And honestly, I respect that.</p>
+      <p>Aku nggak berpikir bahwa seseorang harus selalu menjadi yang paling terbuka, paling ramai, atau paling mudah bergaul untuk bisa dianggap menarik.</p>
+      <p>Some people are naturally expressive. Some take longer to feel comfortable. Some need a little more time before they let other people see the parts of themselves that matter most.</p>
+      <p>None of those things automatically makes one person better than another.</p>
+      <p>Everyone has their own pace.</p>
+      <p class="bigline">And sometimes, there's beauty in people who don't feel the need to perform.</p>
+      <p>Dan entah kenapa, aku suka melihat sisi itu dari kamu.</p>
+      <p>Maybe because there's something refreshing about someone who doesn't seem to need constant attention to have a presence.</p>
+      <p>Someone whose personality isn't necessarily revealed all at once.</p>
+      <p>Someone you can continue learning about, little by little.</p>
+      <p>I don't know whether you see yourself that way, and I'm not going to pretend that I understand every part of you just because we've talked.</p>
+      <p>I don't.</p>
+      <p>But I find the possibility of knowing you better interesting.</p>
+      <p>Not because I want to turn you into a mystery that I need to solve.</p>
+      <p class="joke">You're not a research project, Nis. Tenang aja, nggak akan ada informed consent form.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>I just think that people are worth knowing beyond their first impressions.</p>
+      <p>And maybe that's one of the reasons I wanted to write all of this.</p>
+      <p>Because sometimes, someone becomes a spark not through one extraordinary moment, but through a collection of ordinary moments that slowly begin to mean something.</p>
+      <p>A conversation here. A joke there. A small detail you remember without knowing why.</p>
+      <p>And before you realize it, someone who used to be just another person in the room becomes someone whose presence you notice.</p>
+      <p>Someone whose words you remember.</p>
+      <p>Someone you find yourself wanting to understand a little better.</p>
+      <p>Maybe that sounds simple.</p>
+      <p>But I think simple things can be meaningful without needing to become complicated.</p>
+      <p>And perhaps that's the kind of spark I want to tell you about.</p>
+      <p>Not something that suddenly changes everything.</p>
+      <p class="bigline">Just something that quietly became part of my days.</p>
+    </div>
+  </section>
+
+  <section class="section reveal" id="plot">
+    <div class="section-head"><div class="num">04</div><div><p class="kicker">The reader · part I</p><h2>The plot twist.</h2><p class="section-deck">A story that apparently started earlier than you might have guessed.</p></div></div>
+    <div class="content">
+      <p class="bigline">The fact is, aku sudah tertarik sama kamu sejak semester dua.</p>
+      <p class="joke">KOK BISA?<br>GA MAKE SENSE!<br>HAHAHAHAHA.</p>
+      <p>Seriously, sometimes I question my own brain, too.</p>
+      <p>I mean, out of all the people I could possibly be interested in, why you?</p>
+      <p>And honestly, I don't think I have a perfectly logical answer.</p>
+      <p>Maybe that's the thing about feelings. They don't always arrive with a clear explanation, a reasonable timeline, or a presentation explaining why someone suddenly becomes interesting to us.</p>
+      <p class="bigline">Namanya juga jatuh, Nis.</p>
+      <p>Emang manusia punya alasan logis kalau tiba-tiba jatuh, selain karena kesandung?</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>But jokes aside, I think there's something interesting about how feelings sometimes develop.</p>
+      <p>You don't necessarily wake up one morning and decide that a particular person is going to matter to you.</p>
+      <p>Sometimes, you simply begin to notice them.</p>
+      <p>Then you remember a conversation.</p>
+      <p>Then you become curious about something they said.</p>
+      <p>Then, without any formal announcement, your brain decides to keep a little space for that person.</p>
+      <p>And apparently, my brain decided to do that with you.</p>
+      <p>Very helpful of it, honestly.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>I can't pinpoint one single moment and confidently say, <em>"Yes, this was exactly when everything started."</em></p>
+      <p>Maybe it wasn't one moment.</p>
+      <p>Maybe it was the way you talked about certain things, the way you seemed to value simple comforts, or the fact that there was still so much about you I hadn't discovered.</p>
+      <p>Maybe it was a combination of little things that individually seemed ordinary but collectively made me curious.</p>
+      <p>Whatever the exact reason was, the fact remains that I became interested in you.</p>
+      <p>And I think it's okay to admit that without trying to make the story sound more dramatic than it really is.</p>
+      <p>Not every meaningful feeling begins with fireworks.</p>
+      <p>Sometimes, it begins with a simple thought.</p>
+      <p class="bigline"><em>She's interesting.</em></p>
+      <p>And then, somehow, that thought stays a little longer than expected.</p>
+      <p>So, yes, semester two.</p>
+      <p>That's where this story goes back to.</p>
+      <p>You might be wondering why I'm only telling you now.</p>
+      <p>Well, apparently, my timing department needed several semesters to process the paperwork.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>But I think there is more to it than that.</p>
+      <p>Sometimes, we don't know how to approach something that feels personal.</p>
+      <p>Sometimes, circumstances are unclear.</p>
+      <p>And sometimes, we simply continue living our lives while a particular feeling quietly remains in the background.</p>
+      <p>I had my own things to focus on, and you had yours.</p>
+      <p>I didn't feel that being interested in someone automatically meant I had to make a move immediately.</p>
+      <p>But I also didn't forget that I was interested.</p>
+      <p>And at some point, I realized that I could either continue keeping it to myself or tell you honestly.</p>
+      <p>So here I am.</p>
+      <p>A little late, perhaps.</p>
+      <p>But at least the website has a decent interface.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+    </div>
+  </section>
+
+  <section class="section reveal" id="window">
+    <div class="section-head"><div class="num">04</div><div><p class="kicker">The reader · part II</p><h2>A window into someone's world.</h2><p class="section-deck">Curiosity, without pretending to know everything.</p></div></div>
+    <div class="content">
+      <p>There's another thing I've been thinking about.</p>
+      <p>When we like someone, it's easy to become attached to the version of that person that exists in our imagination.</p>
+      <p>We notice a few qualities, remember certain conversations, and begin connecting the dots.</p>
+      <p>Sometimes, we get things right.</p>
+      <p>Sometimes, we fill the gaps with assumptions.</p>
+      <p>And sometimes, we accidentally fall for an idea of someone instead of making the effort to know the actual person.</p>
+      <p class="bigline">I don't want to do that.</p>
+      <p>Aku tahu bahwa mengenal seseorang jauh lebih rumit daripada sekadar mengamati kebiasaannya, mendengar ceritanya, atau menebak kepribadiannya dari beberapa percakapan.</p>
+      <p>There's a difference between thinking you understand someone and being willing to understand them.</p>
+      <p class="bigline">And I would rather be the second person.</p>
+      <p>Someone who's willing to listen, learn, and let you be a person beyond whatever first impression I might have of you.</p>
+      <p>I know that what I've seen so far is only a part of who you are.</p>
+      <p>There's the version of you that people see in class. The version that appears when you're with your friends. The version that comes out when you're comfortable enough to joke around.</p>
+      <p>And then there are probably countless other parts of you that I haven't had the chance to know.</p>
+      <p>Your thoughts when you're alone. The things you care about but rarely talk about. The little habits that make you feel like yourself.</p>
+      <p>The things that make you happy, the things that worry you, and the things you're still trying to understand about life.</p>
+      <p>I'm not assuming I know all of those things.</p>
+      <p>I'm simply acknowledging that there's more to you than what I've seen.</p>
+      <p>And I think that's part of what makes getting to know someone interesting.</p>
+      <p>Not the idea of discovering every secret they have, but the opportunity to understand how they see the world.</p>
+      <p>To hear their perspective, even when it differs from yours.</p>
+      <p>To learn what matters to them without deciding in advance what their answers should be.</p>
+      <p>To be curious without becoming intrusive.</p>
+      <p>Because I don't think closeness is something we can demand from another person.</p>
+      <p>It develops when two people gradually find reasons to feel comfortable around each other.</p>
+      <p>And comfort, to me, is not about having to talk all the time or knowing everything about someone.</p>
+      <p>Sometimes, it's simply knowing that you can be yourself without feeling like you have to perform.</p>
+      <p>Aku nggak ingin kamu merasa harus menjadi lebih terbuka hanya supaya aku bisa mengenalmu lebih cepat.</p>
+      <p>I don't want to rush the process of knowing you.</p>
+      <p>Kalau ada hal yang ingin kamu ceritakan, I'd be happy to listen.</p>
+      <p>Kalau ada hal yang belum ingin kamu ceritakan, that's completely fine, too.</p>
+      <p>You don't have to make every part of yourself available just because someone is interested in you.</p>
+      <p class="bigline">Your world belongs to you.</p>
+      <p>And if one day you decide to let someone see a little more of it, I think that should happen because you genuinely feel comfortable, not because you feel obligated.</p>
+      <p>Maybe that's also why I remember our conversation about friendship and simple sparks.</p>
+      <p>Because being accepted doesn't always mean being completely understood from the beginning.</p>
+      <p>Sometimes, it means having the space to be understood gradually.</p>
+      <p class="bigline">Not with the assumption that I already know you. But with the willingness to keep learning who you are.</p>
+    </div>
+  </section>
+
+  <section class="section reveal" id="rumor">
+    <div class="section-head"><div class="num">04</div><div><p class="kicker">The reader · part III</p><h2>The American rumor.</h2><p class="section-deck">Sometimes respecting someone means knowing when not to make a move.</p></div></div>
+    <div class="content">
+      <p>Now, here's another part of the story.</p>
+      <p>Dulu, aku sempat mengerem langkahku setelah mendengar kabar dari teman bahwa kamu punya <em>someone</em> di Amerika.</p>
+      <p class="joke">My immediate reaction was basically:<br><em>"Oh. Okay, I can't."</em><br>HAHAHAHAHA.</p>
+      <p>Ya mau bagaimana lagi?</p>
+      <p>Aku nggak mau menjadi orang yang sengaja masuk ke ruang yang sudah ditempati orang lain.</p>
+      <p>Kalau memang ada seseorang yang sedang kamu perjuangkan atau kamu pilih, that's something I should respect.</p>
+      <p>Aku nggak tahu seberapa benar kabar itu. Aku juga nggak merasa perlu menyelidiki kehidupan pribadimu hanya untuk mencari celah.</p>
+      <p class="bigline">So I stepped back.</p>
+      <p>Bukan karena perasaanku tiba-tiba hilang, tetapi karena menurutku, menyukai seseorang nggak otomatis memberikan kita hak untuk masuk ke kehidupannya sesuka hati.</p>
+      <p class="bigline">Sometimes, respecting someone means knowing when not to make a move.</p>
+      <p>Dan kupikir, ya sudah. Kalau memang begitu keadaannya, aku cukup menyimpan perasaan itu dan menjalani hidupku seperti biasa.</p>
+      <p>Life goes on, right?</p>
+      <p>Toh, masih ada banyak hal yang perlu dikerjakan. Kuliah, tutorial, praktikum, tugas, riset, dan segala macam urusan yang sepertinya nggak akan pernah habis.</p>
+      <p>Aku nggak mungkin menghentikan hidup hanya karena ada satu perasaan yang belum tentu ke mana arahnya.</p>
+      <div class="quote-card"><p class="quote">“Respect can mean stepping back,<br>even when the feeling remains.”</p><p class="translation">A feeling doesn't automatically give us the right to enter someone's life.</p></div>
+      <p>But then, plot twist.</p>
+      <p class="bigline">Kita malah dipertemukan dalam satu BBDM.</p>
+      <p>Dari sekian banyak kemungkinan, dari sekian banyak orang yang bisa berada dalam satu kelompok, kita justru bertemu dalam ruang yang sama.</p>
+      <p>Padahal, kalau dilihat dari urutan alfabetis, nama kamu A dan namaku N.</p>
+      <p>Secara sistematis, harusnya kita nggak punya alasan khusus untuk berada dalam satu kelompok hanya berdasarkan urutan nama.</p>
+      <p class="joke">Kalau bukan takdir, alasan logisnya apa coba?</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>Okay, maybe that's not a scientifically valid argument. Jangan dibawa ke tutorial, nanti kita malah disuruh merumuskan hipotesis dan mencari variabel perancu.</p>
+      <p>But still, I found it funny how life sometimes brings people into the same room without giving them an explanation.</p>
+      <p>And somehow, we started talking.</p>
+      <p>Mungkin buat kamu, awalnya ini cuma percakapan biasa. Dua orang yang kebetulan satu kelompok, saling merespons, sesekali bercanda, membicarakan banyak hal, lalu perlahan jadi lebih familiar satu sama lain.</p>
+      <p>But for me, somewhere along the way, those little conversations became something I looked forward to.</p>
+      <p>Bukan karena setiap percakapan harus punya makna besar. Justru karena beberapa di antaranya terasa biasa saja.</p>
+      <p>Tentang hal-hal random, candaan yang nggak penting-penting amat, atau obrolan yang tiba-tiba berbelok ke arah yang nggak pernah direncanakan.</p>
+      <p class="bigline">Sometimes, it's the ordinary moments that quietly become memorable.</p>
+      <p>And that's the funny thing about life.</p>
+      <p>You can spend so much time thinking about whether something will happen, only to find yourself in a situation you never actually planned.</p>
+      <p>Aku nggak akan mengklaim bahwa pertemuan kita di BBDM adalah bukti mutlak bahwa semesta sudah menyusun skenario romantis untuk kita.</p>
+      <p class="joke">HAHAHAHAHA. Aku masih punya akal sehat. Sedikit.</p>
+      <p>But I can say that I appreciate the coincidence.</p>
+      <p>Karena dari situ, aku punya kesempatan untuk mengenalmu lebih jauh daripada sekadar seseorang yang namanya pernah menarik perhatianku.</p>
+      <p>And maybe that's enough of a reason to be grateful for the plot twist.</p>
+      <p>Bukan karena aku tahu bagaimana ceritanya akan berakhir.</p>
+      <p class="bigline">But because, for a while, life gave us a chance to be part of the same chapter.</p>
+    </div>
+  </section>
+
+  <section class="section reveal" id="myway">
+    <div class="section-head"><div class="num">04</div><div><p class="kicker">The reader · part IV</p><h2>My own way.</h2><p class="section-deck">Being sincere without becoming overwhelming.</p></div></div>
+    <div class="content">
+      <p>Now, I want to talk about how I've chosen to show you what I feel.</p>
+      <p>I know there are many ways to express affection.</p>
+      <p>Some people are direct. Some people are subtle. Some people prefer to spend more time together, while others express themselves through small gestures, thoughtful messages, or the little details they remember.</p>
+      <p>And I think everyone has their own way of showing that someone matters to them.</p>
+      <p>For me, I wanted to do this in a way that felt sincere.</p>
+      <p>Not by making a huge scene, not by suddenly changing the way I act around you, and definitely not by turning every interaction into an obvious attempt to get your attention.</p>
+      <p>Aku nggak mau <em>bombardir</em> kamu dengan perhatian sampai kamu nggak punya kesempatan untuk mengenaliku secara natural.</p>
+      <p class="bigline"><em>Just let it flow.</em></p>
+      <p>Bukan karena perasaanku setengah-setengah, melainkan karena aku percaya bahwa sesuatu yang baik nggak selalu perlu dipercepat.</p>
+      <p>But I also don't want to hide behind that idea forever.</p>
+      <p>Sometimes, people use the phrase <em>"let it flow"</em> because they're genuinely comfortable letting things develop naturally.</p>
+      <p>Other times, they use it because they're afraid to say what they actually feel.</p>
+      <p>And I think there's a difference between being patient and being afraid.</p>
+      <p>Aku nggak ingin terus bersembunyi di balik alasan bahwa semuanya akan berjalan dengan sendirinya kalau pada akhirnya ada sesuatu yang memang ingin aku sampaikan.</p>
+      <p>So, here I am.</p>
+      <p>Trying to be honest while still respecting the natural pace of things.</p>
+      <p>Maybe it sounds contradictory.</p>
+      <p>Aku ingin menunjukkan perasaanku, tetapi aku nggak ingin membuatmu merasa tertekan.</p>
+      <p>Aku ingin kamu tahu bahwa kamu menarik perhatianku, tetapi aku nggak ingin kehadiranku membuatmu merasa harus mengubah ritme hidupmu.</p>
+      <p class="bigline">I want to be sincere without becoming overwhelming.</p>
+      <p>And I think that's something worth learning.</p>
+      <p>Because caring about someone isn't only about how strongly you feel.</p>
+      <p>It's also about how thoughtfully you choose to express those feelings.</p>
+      <p>Aku bisa saja mengatakan banyak hal romantis, membuat banyak janji, atau menyusun kalimat yang terdengar sangat meyakinkan.</p>
+      <p>But words alone don't automatically make someone feel safe.</p>
+      <p>What matters is whether the way we treat someone is consistent with what we say.</p>
+      <p>And I'm still learning, too.</p>
+      <p>I don't claim to have mastered every part of this.</p>
+      <p class="joke">I'm not some relationship expert who has everything figured out. HAHAHAHAHA.</p>
+      <p>I'm just someone who believes that sincerity matters, respect matters, and the way we make other people feel matters.</p>
+      <p>There's a line I've always remembered from my mom:</p>
+      <div class="quote-card"><p class="quote">“If you love someone, let them know.<br>Love them with all your heart.”</p><p class="translation">A lesson from my mom that stayed with me.</p></div>
+      <p>Mamaku selalu mengajarkan bahwa kalau kita menyayangi seseorang, jangan sampai kita terlalu sibuk menyembunyikan perasaan sampai orang itu bahkan nggak pernah tahu bahwa dirinya berarti.</p>
+      <p>Bukan berarti kita harus memaksakan perasaan itu untuk dibalas.</p>
+      <p>Bukan berarti kita harus mengejar seseorang sampai dia nggak punya ruang untuk dirinya sendiri.</p>
+      <p>But if your feelings are sincere, why should honesty be something to be afraid of?</p>
+      <p>Menurutku, perasaan itu datang bukan hanya untuk disimpan sampai kita sendiri lupa bagaimana rasanya.</p>
+      <p>Ada kalanya perasaan perlu disampaikan, bukan supaya orang lain memikul tanggung jawab atasnya, tetapi supaya kejujuran punya tempat untuk hidup.</p>
+      <p class="bigline">And that's what I want to do.</p>
+      <p>Aku ingin menyampaikan perasaanku dengan sepenuh hati, tanpa berpura-pura biasa saja ketika sebenarnya ada sesuatu yang ingin aku katakan.</p>
+      <p>I want to be honest enough to admit that I like you, and mature enough to understand that my honesty doesn't determine your response.</p>
+      <p class="bigline">My feelings are mine to own, not yours to repay.</p>
+      <p>You don't owe me affection just because I gave you attention.</p>
+      <p>Dua hal itu bisa berjalan bersamaan, Nis. Aku bisa menyukaimu dengan sungguh-sungguh, sementara kamu tetap punya kebebasan penuh untuk merasakan apa pun yang memang kamu rasakan.</p>
+      <p>Aku bisa berharap, tanpa mengubah harapan itu menjadi tuntutan.</p>
+      <p>Aku bisa memberitahumu bahwa kamu punya tempat tersendiri dalam pikiranku, tanpa meminta kamu langsung menentukan tempatku di dalam pikiranmu.</p>
+      <p>Because to me, caring about someone also means caring about how they experience being cared for.</p>
+      <p>And this is where I sometimes find myself caught between two things.</p>
+      <p>Di satu sisi, aku ingin menunjukkan perasaanku dengan tulus. Aku ingin kamu tahu bahwa aku nggak sedang bercanda soal bagian ini, meskipun mungkin nanti ada beberapa kalimat yang tetap terdengar seperti aku sedang bercanda.</p>
+      <p>That's just me. You can't expect me to suddenly become a completely different person just because I'm talking about something sincere.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>But on the other hand, I care about your comfort.</p>
+      <p>I care about your peace, your pace, and the little world you've built for yourself.</p>
+      <p>Aku tahu kamu punya ritmemu sendiri. Kamu punya hal-hal yang sedang kamu usahakan, kehidupan yang harus kamu jalani, dan cara tersendiri untuk merasa nyaman dengan orang lain.</p>
+      <p>Aku nggak ingin kehadiranku justru terasa seperti sesuatu yang mengganggu semua itu.</p>
+      <p class="bigline">My biggest fear isn't that you won't feel the same way.</p>
+      <p>It's that, in trying to show you how much I care, I might accidentally make you uncomfortable.</p>
+      <p>Aku nggak mau <em>disturb your peace and your slow living</em>, apalagi kita sama-sama masih belajar menemukan ritme hidup kita masing-masing.</p>
+      <p>I don't want you to feel like you have to change the way you live just because someone likes you.</p>
+      <p>Aku nggak ingin kamu merasa harus menjadi lebih responsif, lebih terbuka, atau lebih ekspresif hanya untuk memenuhi ekspektasi yang bahkan nggak pernah kamu sepakati.</p>
+      <p>And I don't want my feelings to become another thing you have to manage on top of everything else in your life.</p>
+      <p class="bigline">Because care should feel safe, not suffocating.</p>
+      <p>Tapi aku juga sedang belajar bahwa menjaga kenyamanan seseorang bukan berarti kita harus terus menyembunyikan kejujuran kita sendiri.</p>
+      <p>There has to be room for both.</p>
+      <p>Room for me to be honest about what I feel, and room for you to remain exactly where you are, without being pushed into anything.</p>
+      <p>Aku nggak ingin <em>bombardir</em> kamu dengan perhatian sampai kamu nggak punya kesempatan untuk mengenaliku secara natural.</p>
+      <p>I don't want to force a story that hasn't had the chance to unfold on its own.</p>
+      <p class="bigline"><em>Just let it flow.</em></p>
+      <p>Bukan karena perasaanku setengah-setengah, melainkan karena aku percaya bahwa sesuatu yang baik nggak selalu perlu dipercepat.</p>
+      <p>Kalau memang ada kesempatan untuk saling mengenal lebih jauh, I'd rather let it happen naturally.</p>
+      <p>Kalau ada percakapan yang ingin dilanjutkan, let's continue it.</p>
+      <p>Kalau ada hal baru yang bisa kita pelajari satu sama lain, let's learn it.</p>
+      <p>And if life takes us in a different direction, I can respect that, too.</p>
+      <p>Because the point of telling you this isn't to secure a particular ending.</p>
+      <p>It's to be honest about the story as it exists right now.</p>
+      <p>Maybe it felt too much lately? Maybe we've all become so used to overthinking every possible outcome that we forget how to be honest about something as simple as liking another person.</p>
+      <p class="bigline">Why are we complicating love so much?</p>
+      <p>Aku nggak mengatakan bahwa perasaan itu selalu sederhana. Relationships can be complicated. Timing can be complicated. Two people's lives, priorities, and expectations can be complicated.</p>
+      <p>But perhaps the act of being honest doesn't have to be.</p>
+      <p>Sometimes, you like someone.</p>
+      <p>Sometimes, you want them to know.</p>
+      <p>And sometimes, that's where the story begins, without either person having to decide how it ends.</p>
+      <p>So, this is me showing you.</p>
+      <p class="bigline">In my own way.</p>
+      <p>With my own words, my own slightly questionable humor, and a website that I hope doesn't crash halfway through.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>I'm not trying to turn this into a grand declaration that changes everything overnight.</p>
+      <p>I'm simply letting you know that somewhere along the way, you became someone I wanted to tell the truth to.</p>
+      <p>And I think that's worth doing.</p>
+    </div>
+  </section>
+
+  <section class="section reveal" id="honesty">
+    <div class="section-head"><div class="num">04</div><div><p class="kicker">The reader · part V</p><h2>A little honesty about me.</h2><p class="section-deck">Not a perfect person. Just someone trying to be sincere.</p></div></div>
+    <div class="content">
+      <p>Since we're already talking about honesty, I think it's only fair to share a little more about myself.</p>
+      <p>I can be ambitious.</p>
+      <p>I can be serious about things I care about.</p>
+      <p>I can overthink details, spend too much time trying to make something work, and sometimes become so focused on what I'm doing that I forget how much time has passed.</p>
+      <p>I have goals, responsibilities, and ideas that I want to turn into something real.</p>
+      <p>I want to keep learning, keep improving, and build a life that I can genuinely be proud of.</p>
+      <p>But I'm also someone who enjoys joking around.</p>
+      <p>I like conversations that don't always have to be productive.</p>
+      <p>I like being able to talk about something serious and then immediately switch to something completely ridiculous.</p>
+      <p>And yes, I can make a joke at the worst possible moment.</p>
+      <p class="joke">You've probably noticed that part already. HAHAHAHAHA.</p>
+      <p>I don't think being sincere means I have to stop being playful.</p>
+      <p>And I don't think being playful means I can't take something seriously.</p>
+      <p class="bigline">Both can exist in the same person.</p>
+      <p>So, if there are moments when I sound ridiculous, it doesn't necessarily mean I don't care.</p>
+      <p>Sometimes, humor is simply the way I make things feel a little less intimidating.</p>
+      <p>Especially when I'm talking about something that actually matters to me.</p>
+      <p>Which, ironically, can make it even harder to be serious for more than five consecutive minutes.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>But I also want to be honest about something else.</p>
+      <p>I don't expect myself to be perfect, and I don't expect the people around me to be perfect, either.</p>
+      <p>I think people are constantly learning how to communicate better, understand themselves better, and become more considerate of one another.</p>
+      <p>I'm no exception.</p>
+      <p>I might misunderstand something.</p>
+      <p>I might not always know the right thing to say.</p>
+      <p>I might occasionally overthink a situation that could have been solved by simply asking a question.</p>
+      <p>The important thing, I think, is being willing to learn when those things happen.</p>
+      <p>To listen instead of immediately defending yourself.</p>
+      <p>To communicate instead of expecting another person to read your mind.</p>
+      <p>And to understand that caring about someone doesn't automatically make you an expert at understanding them.</p>
+      <p>There's still a lot to learn.</p>
+      <p>About people. About relationships. About timing. And about myself.</p>
+      <p>Aku nggak ingin datang ke kehidupan seseorang dengan berpura-pura bahwa aku sudah punya semua jawaban.</p>
+      <p class="bigline">I would rather be someone who knows what he values, takes his intentions seriously, and remains willing to grow.</p>
+      <p>I know the things I want to pursue in life.</p>
+      <p>I know that I want to keep building something meaningful with the time and opportunities I have.</p>
+      <p>And I know that if I care about someone, I want that care to be genuine.</p>
+      <p>Not performative.</p>
+      <p>Not something I do just to receive a particular response.</p>
+      <p>Not a temporary act that disappears when things become inconvenient.</p>
+      <p>I want to be someone whose words and actions make sense together.</p>
+      <p>Of course, that doesn't mean I can promise that I'll never make mistakes.</p>
+      <p>It means that I want to be accountable for them.</p>
+      <p>And I think that's a more honest thing to offer than pretending to be flawless.</p>
+      <p>So, Nis, this is a little more of who I am.</p>
+      <p>Someone who can be ambitious and unserious in the same afternoon.</p>
+      <p>Someone who likes to plan things but still finds himself surprised by life.</p>
+      <p>Someone who wants to do meaningful things, but also appreciates the people and ordinary moments that make the process worthwhile.</p>
+      <p>And someone who, apparently, has decided to build an entire website because saying <em>"I like you"</em> in a normal conversation felt too easy.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>But beneath all the jokes, there's a simple truth.</p>
+      <p class="bigline">I like you.</p>
+      <p>I wanted you to know that the person saying those words isn't trying to play a character.</p>
+      <p>It's just me.</p>
+    </div>
+  </section>
+
+  <section class="section reveal" id="mindreader">
+    <div class="section-head"><div class="num">05</div><div><p class="kicker">The mind reader</p><h2>I'm not going to guess your answer.</h2><p class="section-deck">You get to experience this in your own way.</p></div></div>
+    <div class="content">
+      <p>Now, I know something about this entire situation might feel a little unexpected.</p>
+      <p>Maybe you never imagined that I had been interested in you since semester two.</p>
+      <p>Maybe you thought our conversations were just ordinary conversations.</p>
+      <p>Maybe you never really thought about it at all.</p>
+      <p>And honestly, that's completely understandable.</p>
+      <p>I'm not expecting you to have noticed every little thing.</p>
+      <p>People have their own lives, their own thoughts, and their own things to focus on.</p>
+      <p>You can't be expected to interpret every conversation as a clue in some elaborate romantic mystery.</p>
+      <p class="joke">This isn't a detective series, Nis. HAHAHAHAHA.</p>
+      <p>And I'm definitely not going to reveal that every random message I've ever sent you was part of some carefully calculated master plan.</p>
+      <p>That would be a little concerning, actually.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>But I do think it's interesting how two people can experience the same interaction in different ways.</p>
+      <p>One person might think it's just a normal conversation.</p>
+      <p>The other might remember it because something about it felt nice.</p>
+      <p>One person might forget a small detail.</p>
+      <p>The other might remember it without even trying.</p>
+      <p>It doesn't necessarily mean either person is wrong.</p>
+      <p>It simply means that we all experience things from our own perspectives.</p>
+      <p>And that's one of the reasons I don't want to assume what you think or feel.</p>
+      <p class="bigline">I can't read your mind.</p>
+      <p>I can't tell you what a particular conversation meant to you.</p>
+      <p>I can't assume that because I enjoyed talking to you, you experienced every conversation in exactly the same way.</p>
+      <p>And I don't need to.</p>
+      <p>I would rather allow you to have your own experience of all of this.</p>
+      <p>Maybe you feel surprised.</p>
+      <p>Maybe you find this funny.</p>
+      <p>Maybe you're thinking, <em>"Fail, why did you make a whole website for this?"</em></p>
+      <p>Fair question.</p>
+      <p>Honestly, I ask myself that sometimes, too.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>But perhaps this is simply how I chose to express something that mattered to me.</p>
+      <p>And now that I've expressed it, I don't think I need to explain every possible meaning behind it.</p>
+      <p>You can take it as it is.</p>
+      <p>A confession.</p>
+      <p>An honest piece of writing.</p>
+      <p>A little glimpse into what has been going on in my head.</p>
+      <p>Or simply a story you happened to read one day.</p>
+      <p>You don't have to assign it a bigger meaning than the one it already has.</p>
+      <p>I also want you to know that I don't think affection should be measured by how quickly someone responds, how frequently they send messages, or how dramatically they express their feelings.</p>
+      <p>People communicate differently.</p>
+      <p>People have different schedules, different priorities, and different ways of becoming comfortable with someone.</p>
+      <p>Sometimes, a slow response simply means someone has things to do.</p>
+      <p>Sometimes, a quiet day is just a quiet day.</p>
+      <p>And sometimes, the best thing we can do is not create an entire theory out of something that may not mean anything at all.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>I say this as someone who can absolutely overthink things when given enough free time.</p>
+      <p>So, yes, I'm aware of the irony.</p>
+      <p>But I think there's a difference between being curious about someone and expecting them to constantly reassure you.</p>
+      <p>I'd rather be curious.</p>
+      <p>I'd rather ask, listen, and understand when the opportunity naturally presents itself.</p>
+      <p>And I'd rather let people have the freedom to be themselves without making them responsible for managing every thought that crosses my mind.</p>
+      <p>That's something I'm trying to practice.</p>
+      <p>Because if I genuinely care about someone, I should care about more than just how they make me feel.</p>
+      <p>I should also care about their comfort, their boundaries, and their freedom to live their own life.</p>
+      <p>And that brings me back to you.</p>
+      <p>I don't know exactly how you will feel after reading this.</p>
+      <p>I don't know whether this will change the way you see me, or whether you'll simply think of it as an unexpectedly elaborate confession from someone you know.</p>
+      <p>Either way, I wanted to give you the chance to know the truth.</p>
+      <p>Not because I expect you to do something with it.</p>
+      <p>But because I believe that honest feelings deserve to be expressed with respect.</p>
+      <p>And maybe, after this, we'll continue talking the way we usually do.</p>
+      <p>Maybe we'll have more random conversations.</p>
+      <p>Maybe we'll discover new things about each other.</p>
+      <p>Maybe we'll end up laughing about this website someday.</p>
+      <p>Or maybe life will unfold in a way neither of us expected.</p>
+      <p>I don't know.</p>
+      <p>And I think it's okay not to know.</p>
+      <p>Because uncertainty doesn't automatically make something meaningless.</p>
+      <p>Sometimes, we can appreciate a moment without knowing what comes next.</p>
+      <p>We can be grateful for a connection without immediately defining what it has to become.</p>
+      <p>We can be honest about our feelings without demanding that the future follow a particular script.</p>
+      <p>So, no, I'm not going to pretend that I know what happens after this.</p>
+      <p>I'm not going to tell you that the universe has already written the ending.</p>
+      <p>I'm not going to promise that everything will magically fall into place just because I made a website and wrote a lot of words.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>I'm simply here, telling you something true.</p>
+      <p class="bigline">And whatever happens after this, I hope the honesty itself can remain a good thing.</p>
+      <p>Because at least now, you know.</p>
+    </div>
+  </section>
+
+  <section class="closing reveal" id="drop">
+    <p class="kicker">06 · The drop</p>
+    <h2>So, one last time.<br><em style="color:var(--wine)">I like you, Nis.</em></h2>
+    <div class="content" style="margin:35px auto;text-align:left">
+      <p>Okay, Nis.</p>
+      <p>We've made it to the end.</p>
+      <p>First of all, thank you for reading this far.</p>
+      <p>Seriously.</p>
+      <p>You could have closed this website halfway through Section 3 and gone back to whatever you were doing, and I would never have known.</p>
+      <p>But if you're still here, I appreciate it.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>I know this is a lot of words for something that could technically be expressed in one sentence.</p>
+      <p>"I like you."</p>
+      <p>There.</p>
+      <p>Three words in English.</p>
+      <p>Or, in Indonesian, "Aku suka kamu."</p>
+      <p>Simple, right?</p>
+      <p>And yet, here we are, with six sections, several questionable jokes, a discussion about feelings, a philosophical detour, and enough material to make this website look like a small academic project.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>But I think I wanted to give this feeling a little more room than a single sentence could provide.</p>
+      <p>Not because the feeling itself needs to be complicated.</p>
+      <p>But because I wanted you to understand the thought behind it.</p>
+      <p>The reason I decided to tell you.</p>
+      <p>The way I see affection.</p>
+      <p>And the fact that, while I do take my feelings seriously, I also understand that they're mine to be responsible for.</p>
+      <p>So, after all these words, here's the part that matters most.</p>
+      <p class="bigline">I like you, Nis.</p>
+      <p>I have for a while.</p>
+      <p>Since semester two, actually.</p>
+      <p>And somehow, despite all the time that's passed, the assignments, the tutorials, the practical sessions, the research, and everything else happening in life, that feeling remained something I wanted to acknowledge.</p>
+      <p>I don't know exactly what made you become someone I was interested in.</p>
+      <p>I don't have a perfect explanation.</p>
+      <p>I just know that I became curious about you, enjoyed the conversations we had, and found myself wanting to know you better.</p>
+      <p>And eventually, I decided that I'd rather be honest about that than keep wondering what it would be like to tell you.</p>
+      <p>That's it.</p>
+      <p>No hidden contract.</p>
+      <p>No secret clause.</p>
+      <p>No surprise final exam.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>Just honesty.</p>
+      <p>And because this is the final section, I wanted to leave you with something a little more tangible than words on a screen.</p>
+      <p>So, there's one more thing.</p>
+      <p class="bigline">A bouquet.</p>
+      <p>My first bouquet for a girl, actually.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>I know, I know. I probably should have researched flowers more thoroughly before doing something like this.</p>
+      <p>But honestly, I'm not exactly an expert in flowers.</p>
+      <p>I couldn't confidently explain the symbolism of every flower, identify every variety, or tell you the entire history behind the arrangement without doing some serious homework first.</p>
+      <p>I'm a medical student, Nis. Not a florist.</p>
+      <p>Although, given the number of things I've tried to learn, I probably shouldn't rule out becoming one someday.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>But I did remember something.</p>
+      <p>Aku pernah melihat kamu menggambar bunga di kelas.</p>
+      <p>And, if I'm remembering correctly, I think aster is one of the flowers you often draw.</p>
+      <p>At least, that's what I think it is.</p>
+      <p><em>CMIIW ahhaaaa.</em></p>
+      <p>I also thought that daisy might be your birth flower, although I could be completely wrong about that, too.</p>
+      <p>So, naturally, I decided to include them in this little thought.</p>
+      <p>Not because I suddenly became an expert in floral symbolism.</p>
+      <p>But because I thought it would be nice if something in this bouquet reminded me of something I'd noticed about you.</p>
+      <p>A small detail.</p>
+      <p>Something ordinary that I happened to remember.</p>
+      <p>And maybe that's what I like about thoughtful gestures.</p>
+      <p>They don't always have to be grand.</p>
+      <p>Sometimes, the meaning is in the fact that someone paid attention.</p>
+      <p>That they remembered a little thing you mentioned, a habit you have, or something you did without realizing anyone was noticing.</p>
+      <p>I don't think a bouquet needs an elaborate explanation to be meaningful.</p>
+      <p>But if I'm giving you one, I'd like it to have a little story behind it.</p>
+      <p>So, here it is.</p>
+      <p class="bigline">My first bouquet for a girl.</p>
+      <p>A little imperfect, considering my limited knowledge of flowers.</p>
+      <p>Possibly containing the flowers I think you like.</p>
+      <p>Possibly containing the flower I think might be associated with your birthday.</p>
+      <p>And definitely carrying a thought that I wanted you to know.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>I hope you like it.</p>
+      <p>And if I got the flowers wrong, please don't deduct points from my final grade.</p>
+      <p>I'm still learning.</p>
+      <p>Now, before I actually end this, there's one last thing I want to say.</p>
+      <p>I don't think every feeling needs to turn into a relationship to have been worth expressing.</p>
+      <p>Sometimes, a feeling teaches us something about ourselves.</p>
+      <p>Sometimes, it reminds us that we can still be sincere, even when we don't know what will happen next.</p>
+      <p>And sometimes, it simply gives us a reason to be brave enough to say something we've been keeping to ourselves.</p>
+      <p>For me, this is one of those moments.</p>
+      <p>I wanted you to know that someone has been interested in you since semester two.</p>
+      <p>That someone has enjoyed getting to know you, even through the little conversations that might not have seemed particularly important at the time.</p>
+      <p>That someone appreciates the way you seem to value simple things, comfortable friendships, and the freedom to grow at your own pace.</p>
+      <p>And that someone wanted to tell you all of this without making you feel like you had to become anything other than yourself.</p>
+      <p>That someone, in case the website hasn't made it obvious enough, is me.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>I don't know what the future holds.</p>
+      <p>I don't know whether our story will become something more, remain a comfortable friendship, or simply be one of those unexpected experiences we remember later in life.</p>
+      <p>But I do know that I don't regret choosing to be honest.</p>
+      <p>Because I believe that if we genuinely care about someone, we should be brave enough to let them know.</p>
+      <p>Not to claim them.</p>
+      <p>Not to control them.</p>
+      <p>Not to make them responsible for our happiness.</p>
+      <p>But to let them understand that, in some small way, they've become meaningful to us.</p>
+      <p>And maybe that's what my mom meant when she taught me to love someone with all my heart.</p>
+      <p>To be sincere.</p>
+      <p>To be brave enough to express what matters.</p>
+      <p>And to understand that genuine affection isn't only about what we hope to receive. It's also about how we choose to give.</p>
+      <p class="bigline">So, Nis, this is me doing exactly that.</p>
+      <p>Aku sudah menyampaikan apa yang ingin aku sampaikan.</p>
+      <p>Dengan caraku sendiri.</p>
+      <p>Dengan sedikit humor yang mungkin nggak diperlukan.</p>
+      <p>Dengan terlalu banyak kata untuk sebuah pengakuan yang sebenarnya sederhana.</p>
+      <p>And with a bouquet that I hope I got at least a little bit right.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+      <p>Thank you for being someone I wanted to write this for.</p>
+      <p>Thank you for the conversations we've had, the little moments I've remembered, and the unexpected plot twist that brought us into the same BBDM.</p>
+      <p>And thank you for taking the time to read this.</p>
+      <p>Whatever you feel after this, I hope you know that you don't have to turn it into something complicated.</p>
+      <p>You can simply let it be what it is.</p>
+      <p>A little honesty from me to you.</p>
+      <p>A story that began with an unexpected feeling.</p>
+      <p>And a reminder that sometimes, the simplest thing we can do is tell the truth.</p>
+      <p class="bigline">So, one last time.</p>
+      <p class="bigline">I like you, Annisa Rachma Rihandini.</p>
+      <p>And I wanted you to know.</p>
+      <p>That's all.</p>
+      <p>No pressure. No hidden agenda.</p>
+      <p>Just me, being honest.</p>
+      <p>And now, I think I'll stop talking before I accidentally add a Section 7.</p>
+      <p class="joke">HAHAHAHAHA.</p>
+    </div>
+    <div class="flower-panel">
+      <svg viewBox="0 0 300 320" role="img" aria-label="Illustration of a soft pink aster and daisy bouquet">
+        <defs><linearGradient id="petal" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f4d9d3"/><stop offset="1" stop-color="#c98285"/></linearGradient></defs>
+        <g stroke="#87927b" stroke-width="2" fill="none" stroke-linecap="round">
+          <path d="M151 295 Q148 220 135 130"/><path d="M152 294 Q174 215 207 139"/><path d="M150 293 Q115 224 83 177"/>
+          <path d="M151 242 Q105 202 83 224 Q110 253 151 242" fill="#a6b29a"/>
+          <path d="M163 226 Q207 190 231 211 Q204 241 163 226" fill="#a6b29a"/>
+          <path d="M144 270 Q183 242 200 263 Q177 285 144 270" fill="#a6b29a"/>
+        </g>
+        <g transform="translate(134 105)" fill="url(#petal)" stroke="#b86f72" stroke-width="1">
+          <ellipse rx="8" ry="34" cy="-24"/><ellipse rx="8" ry="34" cy="-24" transform="rotate(30)"/><ellipse rx="8" ry="34" cy="-24" transform="rotate(60)"/><ellipse rx="8" ry="34" cy="-24" transform="rotate(90)"/><ellipse rx="8" ry="34" cy="-24" transform="rotate(120)"/><ellipse rx="8" ry="34" cy="-24" transform="rotate(150)"/><ellipse rx="8" ry="34" cy="-24" transform="rotate(180)"/><ellipse rx="8" ry="34" cy="-24" transform="rotate(210)"/><ellipse rx="8" ry="34" cy="-24" transform="rotate(240)"/><ellipse rx="8" ry="34" cy="-24" transform="rotate(270)"/><ellipse rx="8" ry="34" cy="-24" transform="rotate(300)"/><ellipse rx="8" ry="34" cy="-24" transform="rotate(330)"/><circle r="12" fill="#d8b56d" stroke="#b58a4d"/>
+        </g>
+        <g transform="translate(207 132)" fill="#fffaf5" stroke="#d6aaa1" stroke-width="1">
+          <ellipse rx="8" ry="29" cy="-20"/><ellipse rx="8" ry="29" cy="-20" transform="rotate(45)"/><ellipse rx="8" ry="29" cy="-20" transform="rotate(90)"/><ellipse rx="8" ry="29" cy="-20" transform="rotate(135)"/><ellipse rx="8" ry="29" cy="-20" transform="rotate(180)"/><ellipse rx="8" ry="29" cy="-20" transform="rotate(225)"/><ellipse rx="8" ry="29" cy="-20" transform="rotate(270)"/><ellipse rx="8" ry="29" cy="-20" transform="rotate(315)"/><circle r="11" fill="#d8b56d" stroke="#b58a4d"/>
+        </g>
+        <g transform="translate(83 174)" fill="#f2d0c9" stroke="#c98285" stroke-width="1">
+          <ellipse rx="7" ry="25" cy="-18"/><ellipse rx="7" ry="25" cy="-18" transform="rotate(45)"/><ellipse rx="7" ry="25" cy="-18" transform="rotate(90)"/><ellipse rx="7" ry="25" cy="-18" transform="rotate(135)"/><ellipse rx="7" ry="25" cy="-18" transform="rotate(180)"/><ellipse rx="7" ry="25" cy="-18" transform="rotate(225)"/><ellipse rx="7" ry="25" cy="-18" transform="rotate(270)"/><ellipse rx="7" ry="25" cy="-18" transform="rotate(315)"/><circle r="9" fill="#d8b56d" stroke="#b58a4d"/>
+        </g>
+        <path d="M102 289 Q150 306 200 288" stroke="#b86f72" stroke-width="3" fill="none"/>
+        <path d="M148 295 L145 310 L174 310 L166 294" fill="#e6b9b5" stroke="#b86f72" stroke-width="1.5"/>
+        <path d="M146 309 L137 319 M172 309 L183 319" stroke="#b86f72" stroke-width="1.5"/>
+      </svg>
+      <div>
+        <span class="flower-label">A small detail I remembered</span>
+        <h3>For you, Nis.</h3>
+        <p>My first bouquet for a girl. I think aster is a flower you often draw, and daisy might be your birth flower. I could be wrong about both, so… <em>CMIIW ahhaaaa.</em></p>
+        <p>I'm not a florist. Just someone who remembered a little detail and wanted to make it part of this story.</p>
+      </div>
+    </div>
+    <p class="signature">With sincerity,<br>Naufa Nufail</p>
+    <p style="font-family:var(--serif);font-style:italic;color:var(--muted);font-size:14px">P.S. Kalau ternyata bunganya salah, anggap aja ini kesempatan buat aku belajar tentang bunga. Kalau ternyata benar, ya berarti aku memang keren. HAHAHAHAHA.</p>
+  </section>
+</main>
+
+<footer class="footer">made with sincerity · Naufa Nufail · for Annisa Rachma Rihandini</footer>
+
+<script>
+const progress=document.getElementById('progress');
+const topbar=document.getElementById('topbar');
+function onScroll(){
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  progress.style.width=(max>0?(window.scrollY/max)*100:0)+'%';
+  topbar.classList.toggle('scrolled',window.scrollY>15);
+}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+// Optional, user-initiated ambient tone; no audio starts automatically.
+let audioCtx=null,oscillators=[],gain=null,playing=false;
+const musicToggle=document.getElementById('musicToggle');
+musicToggle.addEventListener('click',()=>{
+  if(!playing){
+    const AC=window.AudioContext||window.webkitAudioContext;
+    if(!AC){musicToggle.textContent='♫ ambience unavailable';return}
+    audioCtx=audioCtx||new AC();audioCtx.resume();
+    gain=audioCtx.createGain();gain.gain.value=0.012;gain.connect(audioCtx.destination);
+    [220,329.63,440].forEach((freq,i)=>{const o=audioCtx.createOscillator();const g=audioCtx.createGain();o.type='sine';o.frequency.value=freq;g.gain.value=[.5,.24,.14][i];o.connect(g);g.connect(gain);o.start();oscillators.push(o)});
+    playing=true;musicToggle.textContent='♫ ambience on';musicToggle.setAttribute('aria-pressed','true');
+  }else{
+    oscillators.forEach(o=>{try{o.stop()}catch(e){}});oscillators=[];if(gain)gain.disconnect();playing=false;musicToggle.textContent='♫ ambience off';musicToggle.setAttribute('aria-pressed','false');
+  }
+});
+</script>
+</body>
+</html>
